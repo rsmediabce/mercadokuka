@@ -1,2 +1,9 @@
 # Ignora carpeta de html originales
 htmlfuente/
+Campos incluidos y su propósito.docx
+# Ignora archivos temporales de editores y del sistema
+*.log
+*.swp
+*.swo
+*.bak
+*.tmp
