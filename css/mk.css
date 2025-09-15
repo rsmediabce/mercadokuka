@@ -1,0 +1,367 @@
+        html,
+        body,
+        div,
+        span,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        em,
+        img,
+        ins,
+        q,
+        s,
+        small,
+        strong,
+        sub,
+        sup,
+        b,
+        u,
+        i,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        audio,
+        canvas,
+        datalist,
+        details,
+        dialog,
+        figure,
+        footer,
+        header,
+        mark,
+        menu,
+        meter,
+        nav,
+        output,
+        progress,
+        section,
+        time,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            vertical-align: baseline;
+        }
+
+        ol,
+        ul,
+        menu {
+            list-style: none;
+        }
+
+        /**
+         * Base
+         */
+
+        /*
+         * 1. Sets default font family to sans-serif.
+         * 2. Prevents iOS text size adjust after orientation change, without disabling
+         *    user zoom.
+         */
+        html,
+        body {
+            height: 100%;
+        }
+
+        html {
+            font-family: sans-serif;
+            /* 1 */
+        }
+
+        body {
+            font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+            padding: 10px;
+            /* Prevent layout "sticking" to the edge of the browser */
+            background-color: #FFF;
+            color: #333;
+            margin: 0 auto;
+            min-width: 200px;
+        }
+
+
+        /**
+         * Home styles
+         */
+        .ml {
+            background-color: #FFE600;
+            font-size: 18px;
+        }
+
+        .ml h2 {
+            display: none;
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .ml .ml-logo {
+            background: url('./img/logo_homecom_v2.png') no-repeat center center;
+            height: 107px;
+            text-indent: -9999px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .ml .ml-site-list {
+            border: 1px solid #DFE2F8;
+            border-radius: 4px;
+        }
+
+        .ml .ml-site-link {
+            background-color: #FFFFFF;
+            border-bottom: 1px dotted #CECECE;
+            display: block;
+            padding: 15px 18px 15px 55px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .ml .ml-site-list li:first-child .ml-site-link {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .ml .ml-site-list li:last-child .ml-site-link {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .ml .ml-site-link:hover,
+        .ml .ml-site-link:focus {
+            background-color: #EDEDED;
+        }
+
+        .ml .ml-site-link:active {
+            color: inherit;
+        }
+
+        /**
+         * Link icon - chevron right
+         */
+        .ml .ml-site-link:after {
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAMAAAAYoR5yAAAAP1BMVEVMaXGZmZmdnZ2+vr7////j4+OZmZmdnZ3///+lpaW8vLykpKStra3///+ioqLa2tq1tbWZmZn///////+ZmZkIbklyAAAAFHRSTlMA0PkZH7eg+psPSenHpeOE3TAph3/vPycAAABJSURBVHjabc1LEoAgDAPQqKii4rf3PyukHbqBrN4ikwCvDBGasEr1VkiTszuYF7QWd3poMLc39rHo7OjSXeqY7Fhlx1X40h9NGcLwBQbnAEeHAAAAAElFTkSuQmCC') no-repeat 0 0 transparent;
+            content: '';
+            float: right;
+            height: 16px;
+            width: 10px;
+            margin-top: 2px;
+        }
+
+        /**
+         * Flags positions
+         */
+        .ml .ml-site-link:before {
+            background: url('https://static.mlstatic.com/org-img/homesnw/img/flags.png?v=3.0') no-repeat 0 0 transparent;
+            content: '';
+            display: block;
+            height: 20px;
+            width: 28px;
+            position: absolute;
+            top: 16px;
+            left: 15px;
+        }
+
+        .ml .ml-site-mlb a:before {
+            background-position: 0 -20px;
+        }
+
+        .ml .ml-site-mco a:before {
+            background-position: 0 -40px;
+        }
+
+        .ml .ml-site-mcr a:before {
+            background-position: 0 -60px;
+        }
+
+        .ml .ml-site-mlc a:before {
+            background-position: 0 -80px;
+        }
+
+        .ml .ml-site-mrd a:before {
+            background-position: 0 -100px;
+        }
+
+        .ml .ml-site-mec a:before {
+            background-position: 0 -120px;
+        }
+
+        .ml .ml-site-mlm a:before {
+            background-position: 0 -140px;
+        }
+
+        .ml .ml-site-mpa a:before {
+            background-position: 0 -160px;
+        }
+
+        .ml .ml-site-mpe a:before {
+            background-position: 0 -180px;
+        }
+
+        .ml .ml-site-mpt a:before {
+            background-position: 0 -200px;
+        }
+
+        .ml .ml-site-mlu a:before {
+            background-position: 0 -220px;
+        }
+
+        .ml .ml-site-mlv a:before {
+            background-position: 0 -240px;
+        }
+
+        .ml .ml-site-mlgt a:before {
+            background-position: 0 -260px;
+        }
+
+        .ml .ml-site-mlbo a:before {
+            background-position: 0 -280px;
+        }
+
+        .ml .ml-site-mlpy a:before {
+            background-position: 0 -300px;
+        }
+
+        .ml .ml-site-mlcb a:before {
+            background-position: 0 -320px;
+        }
+
+        .ml .ml-site-mlhn a:before {
+            background-position: 0 -340px;
+        }
+
+        .ml .ml-site-mlni a:before {
+            background-position: 0 -360px;
+        }
+
+        .ml .ml-site-mlsv a:before {
+            background-position: 0 -380px;
+        }
+
+        @media screen and (max-width: 1023px) {
+            .ml .ml-logo {
+                background-image: url('../img/logo_homecom_v2mb.png');
+                background-size: auto 107px;
+            }
+
+        }
+
+        @media screen and (min-width: 1024px) {
+            .ml {
+                display: table;
+            }
+
+            .ml header,
+            .ml nav {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .ml .ml-logo {
+                background-image: url('../img/logo_homecom_v2.png');
+                height: 223px;
+                width: 249px;
+                background-size: contain;
+            }
+
+            .ml h2 {
+                display: block;
+            }
+
+            .ml nav {
+                padding-left: 74px;
+            }
+
+            .ml .ml-site-list {
+                border: 0;
+                border-radius: 4px;
+            }
+
+            .ml .ml-site-list li {
+                margin-bottom: 2px;
+            }
+
+            .ml .ml-site-link {
+                background-color: rgba(255, 255, 255, .5);
+                border-bottom: 0;
+                border-radius: 4px;
+                display: inline-block;
+                font-size: 14px;
+                padding: 5px 18px 5px 55px;
+                transition: all .3s;
+            }
+
+            .ml .ml-site-link:hover {
+                background-color: rgba(255, 255, 255, .8);
+            }
+
+            .ml .ml-site-list li:last-child .ml-site-link {
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .ml .ml-site-link:before {
+                top: 3px;
+            }
+
+            .ml .ml-site-link:after {
+                display: none;
+            }
+
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+
+            .ml .ml-logo {
+                background-image: url('../img/logo_homecom_v2mb.png');
+                background-size: auto 107px;
+            }
+
+            .ml .ml-site-link:before {
+                background-image: url('https://static.mlstatic.com/org-img/homesnw/img/flags@2x.png?v=4.0');
+                background-size: 28px;
+            }
+
+            @media (min-width: 1024px) {
+
+                .ml .ml-logo {
+                    background-size: contain;
+                }
+
+            }
+
+        }

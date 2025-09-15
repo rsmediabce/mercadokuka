@@ -77,6 +77,67 @@ let elementosMostrar = 6;
 let paginaActual = 1;
 let totalPaginas = 1;
 
+/// ordenar productos por Select de ordenamiento
+document.getElementById("ordenar").addEventListener("change", function () {
+	const criterio = this.value;
+	console.log("Ordenando por:", criterio);
+	if (criterio === "1") {
+		// Menor precio
+		datosActuales.sort((a, b) => a.price - b.price);
+	} else if (criterio === "2") {
+		// Mayor precio
+		datosActuales.sort((a, b) => b.price - a.price);
+	} else {
+		// Más relevantes (por defecto, sin ordenar)
+		datosActuales = localStorage.getItem("productos")
+			? JSON.parse(localStorage.getItem("productos"))
+			: data;
+	}
+	mostrarProductos(1); // Mostrar desde la primera página
+});
+
+/// manejar filtros por precio maximo y minimo
+document.getElementById("priceMin").value = "";
+document.getElementById("priceMax").value = "";
+document
+	.getElementById("filtro-precio")
+	.addEventListener("submit", function (e) {
+		e.preventDefault();
+
+		// limpio los otros filtros
+		const checkboxesCat = document.querySelectorAll('input[name="categoria"]');
+		const checkboxesCond = document.querySelectorAll('input[name="condicion"]');
+		const checkboxesMarca = document.querySelectorAll('input[name="marca"]');
+		checkboxesCond.forEach((checkbox) => (checkbox.checked = false));
+		checkboxesMarca.forEach((checkbox) => (checkbox.checked = false));
+		checkboxesCat.forEach((checkbox) => (checkbox.checked = false));
+
+		const min = parseFloat(document.getElementById("priceMin").value);
+		const max = parseFloat(document.getElementById("priceMax").value);
+		console.log("Filtrando por precio:", min, max);
+		if (isNaN(min) && isNaN(max)) {
+			// Si ambos están vacíos, mostrar todos los productos
+			datosActuales = data;
+		} else if (!isNaN(min) && isNaN(max)) {
+			// Solo mínimo
+			datosActuales = data.filter((producto) => producto.price >= min);
+		} else if (isNaN(min) && !isNaN(max)) {
+			// Solo máximo
+			datosActuales = data.filter((producto) => producto.price <= max);
+		} else {
+			// Ambos
+			datosActuales = data.filter(
+				(producto) => producto.price >= min && producto.price <= max
+			);
+		}
+		totalPaginas = Math.ceil(datosActuales.length / elementosMostrar); // Actualizar totalPaginas
+		paginaActual = 1; // Reiniciar a la primera página
+		mostrarProductos();
+		document.getElementById(
+			"results-count"
+		).textContent = `${datosActuales.length} resultados`;
+	});
+
 /// manejar busqueda por categoria con checkboxes
 document
 	.getElementById("filtro-categoria")
@@ -263,13 +324,6 @@ document
 		}
 	});
 
-document.querySelector(".sort-select").addEventListener("change", function () {
-	alert(
-		"Ordenamiento cambiado a: " +
-			this.value +
-			". En una aplicación real, esto reordenaría los productos."
-	);
-});
 let totalElementsInCart = obtenerTotalItems();
 document.querySelector(".cart-count").textContent =
 	"(" + totalElementsInCart + ")";
