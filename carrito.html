@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <title>Carrito de Compras - Mercado Kuka</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Indicador de pasos -->
+        <div class="step-indicator">
+            <div class="step active">
+                <div id="paso1" class="step-number">1</div>
+                <div class="step-text">Carrito</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">Envío</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">Pago</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-text">Confirmación</div>
+            </div>
+        </div>
+
+        <!-- Página de Carrito -->
+        <div id="cart-page">
+            <h1 class="page-title">Tu carrito de compras</h1>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="cart-container" class="cart-container">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cart-container">
+                        <div class="summary-title">Resumen de compra</div>
+
+                        <div class="summary-card">
+                            <div class="summary-row">
+                                <span id="total-productos"></span>
+                                <span id="total-summary"></span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <span class="text-success">Gratis</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Descuentos</span>
+                                <span class="text-danger">-$0,00</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <span id="total-precio"></span>
+                            </div>
+                        </div>
+
+                        <button class="btn-continue" onclick="showPaymentPage()">Pagar</button>
+                        <button class="btn-seguir" onclick="document.location.href='listadomk.html'">Seguir
+                            comprando</button>
+                        <button class="btn-vaciar">Vaciar Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Pago (oculta inicialmente) -->
+        <div id="payment-page" style="display: none;">
+            <h1 class="page-title">Completa tu compra</h1>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="payment-container">
+                        <h3 class="summary-title">Dirección de envío</h3>
+
+                        <div class="address-card selected">
+                            <div class="address-title">Casa</div>
+                            <div>Rogelio SCHWINDT</div>
+                            <div>Calle L. C. de la Lora Nro 123</div>
+                            <div>Balcarce Bs. As. CP 7620</div>
+                            <div>Tel: 54 9 2266 41 5678</div>
+                        </div>
+
+                        <div class="address-card">
+                            <div class="address-title">Oficina</div>
+                            <div>Rogelio SCHWINDT</div>
+                            <div>Ruta 226 Km 73.5, Piso 1 Oficina 4</div>
+                            <div>Balcarce Bs. As. CP 7620</div>
+                            <div>Tel: 54 9 2266 41 5678</div>
+                        </div>
+
+                        <div class="new-address-btn">
+                            <i class="fas fa-plus"></i> Agregar nueva dirección
+                        </div>
+                    </div>
+
+                    <div class="payment-container mt-4">
+                        <h3 class="summary-title">Método de pago</h3>
+
+                        <div class="payment-method selected">
+                            <div class="payment-method-header">
+                                <i class="far fa-credit-card payment-method-icon"></i>
+                                <div class="payment-method-title">Tarjeta de crédito o débito</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Número de tarjeta</label>
+                                <input type="text" class="form-control" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Fecha de vencimiento</label>
+                                        <input type="text" class="form-control" placeholder="MM/AA">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Código de seguridad</label>
+                                        <input type="text" class="form-control" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Nombre del titular</label>
+                                <input type="text" class="form-control" placeholder="Como aparece en la tarjeta">
+                            </div>
+                        </div>
+
+                        <div class="payment-method">
+                            <div class="payment-method-header">
+                                <i class="fab fa-paypal payment-method-icon"></i>
+                                <div class="payment-method-title">PayPal</div>
+                            </div>
+                        </div>
+
+                        <div class="payment-method">
+                            <div class="payment-method-header">
+                                <i class="fas fa-money-bill-wave payment-method-icon"></i>
+                                <div class="payment-method-title">Efectivo en puntos de pago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="payment-container">
+                        <div class="summary-title">Resumen de compra</div>
+
+                        <div class="summary-card">
+                            <div class="summary-row">
+                                <span id="total-productos-pago"></span>
+                                <span id="total-summary-pago"></span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <span class="text-success">Gratis</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Descuentos</span>
+                                <span class="text-danger">-$0,00</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <span id="total-precio-pago"></span>
+                            </div>
+                        </div>
+
+                        <div class="secure-payment">
+                            <i class="fas fa-lock"></i>
+                            <span class="ms-2">Pago seguro</span>
+                        </div>
+
+                        <button id="payNow" class="btn-continue">Pagar ahora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Script para funcionalidad del carrito y pago -->
+    <script>
+        function showPaymentPage() {
+            document.getElementById('cart-page').style.display = 'none';
+            document.getElementById('payment-page').style.display = 'block';
+
+            // Actualizar el indicador de pasos
+            document.querySelectorAll('.step')[0].classList.remove('active');
+            document.querySelectorAll('.step')[0].classList.add('completed');
+            document.querySelectorAll('.step')[1].classList.add('active');
+        }
+
+        // Funcionalidad para los botones de cantidad
+        document.querySelectorAll('.quantity-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const input = this.parentNode.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+
+                if (this.textContent === '+') {
+                    value++;
+                } else if (this.textContent === '-' && value > 1) {
+                    value--;
+                }
+
+                input.value = value;
+                // En una aplicación real, actualizaríamos el total aquí
+            });
+        });
+
+        // Funcionalidad para eliminar productos
+        document.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.addEventListener('click', function () {
+                if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+                    this.closest('.cart-item').remove();
+                    // En una aplicación real, actualizaríamos el resumen aquí
+                }
+            });
+        });
+
+        // Selección de métodos de pago
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function () {
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // Selección de dirección
+        document.querySelectorAll('.address-card').forEach(card => {
+            card.addEventListener('click', function () {
+                document.querySelectorAll('.address-card').forEach(c => {
+                    c.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+    </script>
+    <script type="module" src="js/carrito.js"></script>
+</body>
+
+</html>

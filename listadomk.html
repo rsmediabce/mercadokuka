@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos - Mercado Kuka</title>
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">Electrónica</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Smartphones, Tablets y Notebooks</li>
+                </ol>
+            </nav>
+
+            <!-- Botón del carrito -->
+            <button id="showCart" type="button" class="btn btn-success cart-btn">
+                <i class="fas fa-shopping-cart"></i> Ver Carrito
+                <span class="cart-count"></span>
+            </button>
+        </div>
+        <!-- Fila principal con filtros y resultados -->
+        <div class="row">
+            <!-- Columna de filtros -->
+            <div class="col-md-3">
+                <div class="filter-panel">
+                    <h3 class="filter-title">Filtros</h3>
+
+                    <div class="filter-section">
+                        <div class="filter-section-title">Precio</div>
+                        <div class="price-range-inputs">
+                            <input type="number" class="form-control" placeholder="Mínimo">
+                            <input type="number" class="form-control" placeholder="Máximo">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-title">Categoría</div>
+                        <div class="filter-options" id="filtro-categoria">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-title">Condicion</div>
+                        <div class="filter-options" id="filtro-condicion">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-title">Marca</div>
+                        <div class="filter-options" id="filtro-marca">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna de resultados -->
+            <div class="col-md-9">
+                <div class="results-header">
+                    <span id="results-count" class="results-count">xx resultados</span>
+                    <div>
+                        <span>Ordenar por: </span>
+                        <select aria-label="State" class="form-select sort-select">
+                            <option selected>Más relevantes</option>
+                            <option>Menor precio</option>
+                            <option>Mayor precio</option>
+                            <option>Mejores calificados</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" id="product-list">
+                    <!-- Aquí se insertan los productos dinámicamente -->
+                </div>
+
+                <!-- Paginación -->
+                <nav aria-label="Page navigation">
+                    <ul id="pagination" class="pagination justify-content-center">
+                    </ul>
+                    <div id="pageInfo"> </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="js/listadomk.js"></script>
+
+</body>
+
+</html>

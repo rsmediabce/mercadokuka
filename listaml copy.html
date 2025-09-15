@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos - Tienda Online</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            padding-top: 20px;
+        }
+        .filter-panel {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 180px;
+            object-fit: contain;
+            width: 100%;
+            padding: 10px;
+        }
+        .product-title {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .product-price {
+            font-size: 22px;
+            font-weight: 300;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .shipping-info {
+            color: #00a650;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .discount-badge {
+            background-color: #fef6e6;
+            color: #f27c1e;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .installments {
+            color: #3483fa;
+            font-size: 14px;
+        }
+        .filter-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        .filter-section-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .filter-options {
+            padding-left: 15px;
+        }
+        .form-check-input:checked {
+            background-color: #3483fa;
+            border-color: #3483fa;
+        }
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .sort-select {
+            width: auto;
+            display: inline-block;
+        }
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .pagination .page-link {
+            color: #3483fa;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: #3483fa;
+            border-color: #3483fa;
+        }
+        .results-count {
+            color: #666;
+            font-size: 14px;
+        }
+        .btn-apply-filters {
+            background-color: #3483fa;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .price-range-inputs {
+            display: flex;
+            gap: 10px;
+        }
+        .price-range-inputs input {
+            width: 100%;
+        }
+        .rating i {
+            color: #ffce00;
+            font-size: 14px;
+        }
+        .strike-through {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="#">Electrónica</a></li>
+                <li class="breadcrumb-item"><a href="#">Celulares y Teléfonos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Smartphones</li>
+            </ol>
+        </nav>
+
+        <!-- Fila principal con filtros y resultados -->
+        <div class="row">
+            <!-- Columna de filtros -->
+            <div class="col-md-3">
+                <div class="filter-panel">
+                    <h3 class="filter-title">Filtros</h3>
+                    
+                    <div class="filter-section">
+                        <div class="filter-section-title">Precio</div>
+                        <div class="price-range-inputs">
+                            <input type="number" class="form-control" placeholder="Mínimo">
+                            <input type="number" class="form-control" placeholder="Máximo">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <div class="filter-section-title">Condición</div>
+                        <div class="filter-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="condition-new" checked>
+                                <label class="form-check-label" for="condition-new">Nuevo</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="condition-used">
+                                <label class="form-check-label" for="condition-used">Usado</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="condition-refurbished">
+                                <label class="form-check-label" for="condition-refurbished">Reacondicionado</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <div class="filter-section-title">Marca</div>
+                        <div class="filter-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand-samsung" checked>
+                                <label class="form-check-label" for="brand-samsung">Samsung</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand-apple" checked>
+                                <label class="form-check-label" for="brand-apple">Apple</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand-xiaomi">
+                                <label class="form-check-label" for="brand-xiaomi">Xiaomi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand-motorola">
+                                <label class="form-check-label" for="brand-motorola">Motorola</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand-huawei">
+                                <label class="form-check-label" for="brand-huawei">Huawei</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <div class="filter-section-title">Modelo</div>
+                        <div class="filter-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="model-galaxy" checked>
+                                <label class="form-check-label" for="model-galaxy">Galaxy S</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="model-iphone" checked>
+                                <label class="form-check-label" for="model-iphone">iPhone</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="model-redmi">
+                                <label class="form-check-label" for="model-redmi">Redmi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="model-moto">
+                                <label class="form-check-label" for="model-moto">Moto G</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <div class="filter-section-title">Envío</div>
+                        <div class="filter-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="free-shipping" checked>
+                                <label class="form-check-label" for="free-shipping">Envío gratis</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="full-shipping">
+                                <label class="form-check-label" for="full-shipping">Envío con costo</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-apply-filters">Aplicar filtros</button>
+                </div>
+            </div>
+            
+            <!-- Columna de resultados -->
+            <div class="col-md-9">
+                <div class="results-header">
+                    <span class="results-count">5.243 resultados</span>
+                    <div>
+                        <span>Ordenar por: </span>
+                        <select aria-label="State" class="form-select sort-select">
+                            <option selected>Más relevantes</option>
+                            <option>Menor precio</option>
+                            <option>Mayor precio</option>
+                            <option>Mejores calificados</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Producto 1 -->
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="product-card">
+                            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                                <img src="https://via.placeholder.com/200x200?text=iPhone+13" class="product-image" alt="iPhone 13">
+                                <div class="product-title">Apple iPhone 13 (128 GB) - Azul medianoche</div>
+                                <div class="product-price">$18,999</div>
+                                <div class="strike-through">$21,499</div>
+                                <div class="discount-badge">12% OFF</div>
+                                <div class="installments">en 12x $1,583 sin interés</div>
+                                <div class="shipping-info">Envío gratis</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(243)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 2 -->
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="product-card">
+                            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                                <img src="https://via.placeholder.com/200x200?text=Samsung+Galaxy" class="product-image" alt="Samsung Galaxy">
+                                <div class="product-title">Samsung Galaxy S21 FE 5G (128 GB) - Blanco</div>
+                                <div class="product-price">$15,499</div>
+                                <div class="strike-through">$16,999</div>
+                                <div class="discount-badge">9% OFF</div>
+                                <div class="installments">en 12x $1,291 sin interés</div>
+                                <div class="shipping-info">Envío gratis</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(187)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 3 -->
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="product-card">
+                            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                                <img src="https://via.placeholder.com/200x200?text=Xiaomi+Redmi" class="product-image" alt="Xiaomi Redmi">
+                                <div class="product-title">Xiaomi Redmi Note 11 (128 GB) - Gris grafito</div>
+                                <div class="product-price">$7,299</div>
+                                <div class="strike-through">$7,999</div>
+                                <div class="discount-badge">9% OFF</div>
+                                <div class="installments">en 12x $608 sin interés</div>
+                                <div class="shipping-info">Envío gratis</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(156)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 4 -->
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="product-card">
+                            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                                <img src="https://via.placeholder.com/200x200?text=Motorola+Edge" class="product-image" alt="Motorola Edge">
+                                <div class="product-title">Motorola Edge 20 Lite (128 GB) - Azul oscuro</div>
+                                <div class="product-price">$9,899</div>
+                                <div class="installments">en 12x $824 sin interés</div>
+                                <div class="shipping-info">Envío gratis</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(98)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 5 -->
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="product-card">
+                            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                                <img src="https://via.placeholder.com/200x200?text=iPhone+12" class="product-image" alt="iPhone 12">
+                                <div class="product-title">Apple iPhone 12 (64 GB) - Negro</div>
+                                <div class="product-price">$16,499</div>
+                                <div class="strike-through">$18,999</div>
+                                <div class="discount-badge">13% OFF</div>
+                                <div class="installments">en 12x $1,374 sin interés</div>
+                                <div class="shipping-info">Envío gratis</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(324)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 6 -->
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="product-card">
+                            <a href="detalle-producto.html" style="text-decoration: none; color: inherit;">
+                                <img src="https://via.placeholder.com/200x200?text=Samsung+Galaxy+A" class="product-image" alt="Samsung Galaxy A">
+                                <div class="product-title">Samsung Galaxy A53 5G (128 GB) - Awesome Black</div>
+                                <div class="product-price">$11,299</div>
+                                <div class="strike-through">$12,499</div>
+                                <div class="discount-badge">10% OFF</div>
+                                <div class="installments">en 12x $941 sin interés</div>
+                                <div class="shipping-info">Envío gratis</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(142)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paginación -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Script para funcionalidad de filtros -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funcionalidad para aplicar filtros
+            document.querySelector('.btn-apply-filters').addEventListener('click', function() {
+                alert('Filtros aplicados. En una aplicación real, esto filtraría los productos.');
+            });
+            
+            // Funcionalidad para cambiar ordenamiento
+            document.querySelector('.sort-select').addEventListener('change', function() {
+                alert('Ordenamiento cambiado a: ' + this.value);
+            });
+        });
+    </script>
+</body>
+</html>

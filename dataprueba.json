@@ -1,0 +1,521 @@
+[
+	{
+		"id": "1",
+		"name": "iPhone 13 Pro",
+		"description": "El iPhone 13 Pro cuenta con un sistema de cámaras Pro más avanzado, pantalla Super Retina XDR con ProMotion, chip A15 Bionic y gran autonomía.",
+		"price": 999.99,
+		"category": "Smartphones",
+		"brand": "Apple",
+		"images": [
+			"img/products/iphone13-1.webp",
+			"img/products/iphone13-2.webp",
+			"img/products/iphone13-3.webp"
+		],
+		"thumbnail": "img/products/iphone13-thumb.png",
+		"stock": 45,
+		"specifications": {
+			"color": "Grafito",
+			"storage": "128GB",
+			"screen": "6.1 pulgadas",
+			"camera": "Sistema triple cámara 12MP",
+			"battery": "Hasta 22 horas de reproducción de video",
+			"os": "iOS 15"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "2",
+		"name": "Samsung Galaxy S22 Ultra",
+		"description": "Smartphone con S Pen integrado, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y cámara de 108 MP.",
+		"price": 1199.99,
+		"category": "Smartphones",
+		"brand": "Samsung",
+		"images": ["img/products/s22ultra-1.jpg", "img/products/s22ultra-2.webp"],
+		"thumbnail": "img/products/s22thumb.webp",
+		"stock": 30,
+		"specifications": {
+			"color": "Negro Fantasma",
+			"storage": "256GB",
+			"screen": "6.8 pulgadas",
+			"camera": "108MP + 12MP + 10MP + 10MP",
+			"battery": "5000 mAh",
+			"os": "Android 12"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "3",
+		"name": "MacBook Pro 14” M1 Pro",
+		"description": "Portátil profesional de Apple con chip M1 Pro, pantalla Liquid Retina XDR y batería de larga duración.",
+		"price": 1999.99,
+		"category": "Notebooks",
+		"brand": "Apple",
+		"images": [
+			"img/products/MacbookPro14-1.webp",
+			"img/products/MacbookPro14-2.webp",
+			"img/products/D_NQ_NP_2X_709415-MLA86208068666_062025-F.webp",
+			"img/products/D_NQ_NP_872559-MLA86489707647_062025-O.webp"
+		],
+		"thumbnail": "img/products/MacbookPro14-thumb.webp",
+		"stock": 20,
+		"specifications": {
+			"color": "Plata",
+			"storage": "512GB SSD",
+			"screen": "14.2 pulgadas",
+			"ram": "16GB",
+			"battery": "Hasta 17 horas",
+			"os": "macOS Monterey"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "4",
+		"name": "Dell XPS 13",
+		"description": "Ultrabook con procesador Intel Core i7 de 12ª generación y pantalla InfinityEdge Full HD.",
+		"price": 1399.99,
+		"category": "Notebooks",
+		"brand": "Dell",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 25,
+		"specifications": {
+			"color": "Plata",
+			"storage": "512GB SSD",
+			"screen": "13.4 pulgadas",
+			"ram": "16GB",
+			"battery": "Hasta 14 horas",
+			"os": "Windows 11"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "5",
+		"name": "iPad Pro 12.9” M1",
+		"description": "Tablet de alto rendimiento con chip M1 y pantalla Liquid Retina XDR.",
+		"price": 1099.99,
+		"category": "Tablets",
+		"brand": "Apple",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 40,
+		"specifications": {
+			"color": "Gris espacial",
+			"storage": "256GB",
+			"screen": "12.9 pulgadas",
+			"camera": "12MP Ultra Wide",
+			"battery": "Hasta 10 horas",
+			"os": "iPadOS 15"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "6",
+		"name": "Microsoft Surface Pro 8",
+		"description": "Tablet convertible con procesador Intel Core i7 y pantalla táctil PixelSense Flow.",
+		"price": 1299.99,
+		"category": "Tablets",
+		"brand": "Microsoft",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 18,
+		"specifications": {
+			"color": "Platino",
+			"storage": "512GB SSD",
+			"screen": "13 pulgadas",
+			"ram": "16GB",
+			"battery": "Hasta 15 horas",
+			"os": "Windows 11"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "7",
+		"name": "Sony WH-1000XM4",
+		"description": "Auriculares inalámbricos con cancelación activa de ruido líder en la industria.",
+		"price": 349.99,
+		"category": "Auriculares",
+		"brand": "Sony",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 60,
+		"specifications": {
+			"color": "Negro",
+			"type": "Over-ear",
+			"battery": "30 horas",
+			"connectivity": "Bluetooth 5.0"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "8",
+		"name": "AirPods Pro",
+		"description": "Auriculares inalámbricos de Apple con cancelación activa de ruido y modo transparencia.",
+		"price": 249.99,
+		"category": "Auriculares",
+		"brand": "Apple",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 75,
+		"specifications": {
+			"color": "Blanco",
+			"type": "In-ear",
+			"battery": "24 horas con estuche",
+			"connectivity": "Bluetooth 5.0"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "9",
+		"name": "Apple Watch Series 7",
+		"description": "Smartwatch con pantalla Retina siempre activa, resistente al agua y al polvo.",
+		"price": 399.99,
+		"category": "Smartwatches",
+		"brand": "Apple",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 50,
+		"specifications": {
+			"color": "Rojo",
+			"size": "45mm",
+			"battery": "18 horas",
+			"os": "watchOS 8"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "10",
+		"name": "Samsung Galaxy Watch 4",
+		"description": "Reloj inteligente con seguimiento avanzado de la salud y compatibilidad con Wear OS.",
+		"price": 299.99,
+		"category": "Smartwatches",
+		"brand": "Samsung",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 65,
+		"specifications": {
+			"color": "Negro",
+			"size": "44mm",
+			"battery": "Hasta 40 horas",
+			"os": "Wear OS"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "11",
+		"name": "PlayStation 5",
+		"description": "Consola de nueva generación de Sony con gráficos 4K y SSD ultrarrápido.",
+		"price": 499.99,
+		"category": "Consolas",
+		"brand": "Sony",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 15,
+		"specifications": {
+			"color": "Blanco",
+			"storage": "825GB SSD",
+			"resolution": "4K UHD",
+			"connectivity": "HDMI 2.1, WiFi 6"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "12",
+		"name": "Xbox Series X",
+		"description": "Consola de Microsoft con potencia de 12 teraflops y soporte para juegos en 4K.",
+		"price": 499.99,
+		"category": "Consolas",
+		"brand": "Microsoft",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 20,
+		"specifications": {
+			"color": "Negro",
+			"storage": "1TB SSD",
+			"resolution": "4K UHD",
+			"connectivity": "HDMI 2.1, WiFi 6"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "13",
+		"name": "Nintendo Switch OLED",
+		"description": "Consola híbrida con pantalla OLED de 7 pulgadas y soporte para multijugador.",
+		"price": 349.99,
+		"category": "Consolas",
+		"brand": "Nintendo",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 35,
+		"specifications": {
+			"color": "Blanco",
+			"storage": "64GB",
+			"screen": "7 pulgadas OLED",
+			"connectivity": "WiFi, Bluetooth"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "14",
+		"name": "GoPro Hero 10 Black",
+		"description": "Cámara de acción con grabación en 5.3K y estabilización avanzada HyperSmooth 4.0.",
+		"price": 499.99,
+		"category": "Cámaras",
+		"brand": "GoPro",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 28,
+		"specifications": {
+			"color": "Negro",
+			"resolution": "5.3K a 60fps",
+			"waterproof": "10m sin carcasa",
+			"battery": "1720 mAh"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "15",
+		"name": "Canon EOS R6",
+		"description": "Cámara mirrorless full-frame con sensor de 20MP y grabación en 4K.",
+		"price": 2499.99,
+		"category": "Cámaras",
+		"brand": "Canon",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 12,
+		"specifications": {
+			"color": "Negro",
+			"sensor": "Full-frame 20.1MP",
+			"screen": "LCD abatible 3.0 pulgadas",
+			"battery": "LP-E6NH"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "16",
+		"name": "Bose SoundLink Revolve+ II",
+		"description": "Altavoz Bluetooth portátil con sonido 360° y hasta 17 horas de batería.",
+		"price": 299.99,
+		"category": "Altavoces",
+		"brand": "Bose",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 40,
+		"specifications": {
+			"color": "Negro",
+			"battery": "17 horas",
+			"connectivity": "Bluetooth, AUX",
+			"waterproof": "IP55"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "17",
+		"name": "Kindle Paperwhite 11ª Gen",
+		"description": "E-reader con pantalla de 6.8 pulgadas, luz cálida ajustable y resistencia al agua.",
+		"price": 149.99,
+		"category": "E-Readers",
+		"brand": "Amazon",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 70,
+		"specifications": {
+			"color": "Negro",
+			"storage": "8GB",
+			"screen": "6.8 pulgadas e-ink",
+			"battery": "Hasta 10 semanas"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "18",
+		"name": "DJI Mini 3 Pro",
+		"description": "Drone ultraligero con cámara 4K HDR y tiempo de vuelo de hasta 34 minutos.",
+		"price": 759.99,
+		"category": "Drones",
+		"brand": "DJI",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 22,
+		"specifications": {
+			"color": "Gris",
+			"camera": "4K HDR 60fps",
+			"flight_time": "34 minutos",
+			"weight": "249g"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "19",
+		"name": "Razer DeathAdder V2",
+		"description": "Mouse gamer ergonómico con sensor óptico Focus+ de 20,000 DPI.",
+		"price": 69.99,
+		"category": "Periféricos",
+		"brand": "Razer",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 100,
+		"specifications": {
+			"color": "Negro",
+			"dpi": "20,000",
+			"buttons": "8 programables",
+			"connectivity": "USB"
+		},
+		"condition": "Nuevo"
+	},
+	{
+		"id": "20",
+		"name": "Logitech MX Keys",
+		"description": "Teclado inalámbrico retroiluminado, ideal para trabajo y productividad.",
+		"price": 99.99,
+		"category": "Periféricos",
+		"brand": "Logitech",
+		"images": ["https://picsum.photos/200/300"],
+		"thumbnail": "https://picsum.photos/200/300",
+		"stock": 80,
+		"specifications": {
+			"color": "Grafito",
+			"layout": "QWERTY",
+			"battery": "Hasta 10 días (retroiluminación encendida)",
+			"connectivity": "Bluetooth, USB-C"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "21",
+		"name": "iPhone 13 Pro",
+		"description": "El iPhone 13 Pro cuenta con un sistema de cámaras Pro más avanzado, pantalla Super Retina XDR con ProMotion, chip A15 Bionic y gran autonomía.",
+		"price": 699.99,
+		"category": "Smartphones",
+		"brand": "Apple",
+		"images": [
+			"img/products/iphone13-1.webp",
+			"img/products/iphone13-2.webp",
+			"img/products/iphone13-3.webp"
+		],
+		"thumbnail": "img/products/iphone13-thumb.png",
+		"stock": 45,
+		"specifications": {
+			"color": "Grafito",
+			"storage": "128GB",
+			"screen": "6.1 pulgadas",
+			"camera": "Sistema triple cámara 12MP",
+			"battery": "Hasta 22 horas de reproducción de video",
+			"os": "iOS 15"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "22",
+		"name": "Samsung Galaxy S22 Ultra",
+		"description": "Smartphone con S Pen integrado, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y cámara de 108 MP.",
+		"price": 599.99,
+		"category": "Smartphones",
+		"brand": "Samsung",
+		"images": ["img/products/s22ultra-1.jpg", "img/products/s22ultra-2.webp"],
+		"thumbnail": "img/products/s22thumb.webp",
+		"stock": 30,
+		"specifications": {
+			"color": "Negro Fantasma",
+			"storage": "256GB",
+			"screen": "6.8 pulgadas",
+			"camera": "108MP + 12MP + 10MP + 10MP",
+			"battery": "5000 mAh",
+			"os": "Android 12"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "23",
+		"name": "MacBook Pro 14” M1 Pro",
+		"description": "Portátil profesional de Apple con chip M1 Pro, pantalla Liquid Retina XDR y batería de larga duración.",
+		"price": 499.99,
+		"category": "Notebooks",
+		"brand": "Apple",
+		"images": [
+			"img/products/MacbookPro14-1.webp",
+			"img/products/MacbookPro14-2.webp",
+			"img/products/D_NQ_NP_2X_709415-MLA86208068666_062025-F.webp",
+			"img/products/D_NQ_NP_872559-MLA86489707647_062025-O.webp"
+		],
+		"thumbnail": "img/products/MacbookPro14-thumb.webp",
+		"stock": 20,
+		"specifications": {
+			"color": "Plata",
+			"storage": "512GB SSD",
+			"screen": "14.2 pulgadas",
+			"ram": "16GB",
+			"battery": "Hasta 17 horas",
+			"os": "macOS Monterey"
+		},
+		"condition": "Usado"
+	},
+	{
+		"id": "24",
+		"name": "iPhone 13 Pro",
+		"description": "El iPhone 13 Pro cuenta con un sistema de cámaras Pro más avanzado, pantalla Super Retina XDR con ProMotion, chip A15 Bionic y gran autonomía.",
+		"price": 759.99,
+		"category": "Smartphones",
+		"brand": "Apple",
+		"images": [
+			"img/products/iphone13-1.webp",
+			"img/products/iphone13-2.webp",
+			"img/products/iphone13-3.webp"
+		],
+		"thumbnail": "img/products/iphone13-thumb.png",
+		"stock": 5,
+		"specifications": {
+			"color": "Grafito",
+			"storage": "128GB",
+			"screen": "6.1 pulgadas",
+			"camera": "Sistema triple cámara 12MP",
+			"battery": "Hasta 22 horas de reproducción de video",
+			"os": "iOS 15"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "25",
+		"name": "Samsung Galaxy S22 Ultra",
+		"description": "Smartphone con S Pen integrado, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y cámara de 108 MP.",
+		"price": 899.99,
+		"category": "Smartphones",
+		"brand": "Samsung",
+		"images": ["img/products/s22ultra-1.jpg", "img/products/s22ultra-2.webp"],
+		"thumbnail": "img/products/s22thumb.webp",
+		"stock": 3,
+		"specifications": {
+			"color": "Negro Fantasma",
+			"storage": "256GB",
+			"screen": "6.8 pulgadas",
+			"camera": "108MP + 12MP + 10MP + 10MP",
+			"battery": "5000 mAh",
+			"os": "Android 12"
+		},
+		"condition": "Reacondicionado"
+	},
+	{
+		"id": "26",
+		"name": "MacBook Pro 14” M1 Pro",
+		"description": "Portátil profesional de Apple con chip M1 Pro, pantalla Liquid Retina XDR y batería de larga duración.",
+		"price": 877.99,
+		"category": "Notebooks",
+		"brand": "Apple",
+		"images": [
+			"img/products/MacbookPro14-1.webp",
+			"img/products/MacbookPro14-2.webp",
+			"img/products/D_NQ_NP_2X_709415-MLA86208068666_062025-F.webp",
+			"img/products/D_NQ_NP_872559-MLA86489707647_062025-O.webp"
+		],
+		"thumbnail": "img/products/MacbookPro14-thumb.webp",
+		"stock": 6,
+		"specifications": {
+			"color": "Plata",
+			"storage": "512GB SSD",
+			"screen": "14.2 pulgadas",
+			"ram": "16GB",
+			"battery": "Hasta 17 horas",
+			"os": "macOS Monterey"
+		},
+		"condition": "Reacondicionado"
+	}
+]
