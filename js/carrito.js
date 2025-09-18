@@ -29,6 +29,43 @@ document.getElementById("paso1").addEventListener("click", function () {
 	window.location.href = "carrito.html";
 });
 
+// Funcion para modificar el stock con fetch y PUT al pagar un producto
+// resta las unidades del stock
+async function actualizarStock(idProducto, cantidadVendida) {
+	const API_URL =
+		"https://68b624a5e5dc090291b0f556.mockapi.io/rsmedia/apiv1/products";
+
+	try {
+		// Obtenemos el stock actual
+		const responseGet = await fetch(`${API_URL}/${idProducto}`);
+		if (!responseGet.ok) throw new Error("Producto no encontrado");
+
+		const producto = await responseGet.json();
+		const nuevoStock = producto.stock - cantidadVendida;
+
+		if (nuevoStock < 0) throw new Error("Stock insuficiente");
+
+		// Actualizamos solo el campo stock
+		const responsePut = await fetch(`${API_URL}/${idProducto}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...producto, // Mantenemos todos los campos existentes
+				stock: nuevoStock, // Sobrescribimos solo el stock
+			}),
+		});
+
+		if (!responsePut.ok) throw new Error("Error en la actualización");
+
+		return await responsePut.json();
+	} catch (error) {
+		console.error("Error al actualizar stock:", error.message);
+		throw error;
+	}
+}
+
 // Función para renderizar el carrito
 function renderizarCarrito() {
 	contenedorCarrito.innerHTML = "";
@@ -149,15 +186,9 @@ function agregarEventosBotones() {
 			}
 		});
 	});
-	/*checkoutBtn.addEventListener('click', () => {
-        if (suCompra.length === 0) {
-            alert('El carrito está vacío.');
-        } else {
-            alert('Procediendo al pago...');
-        }
-    });*/
 }
 
+/// simulamos el proceso de pago y actualizacion de stock en caso de confirmacion
 document.getElementById("payNow").addEventListener("click", function (e) {
 	e.preventDefault();
 	if (suCompra.length === 0) {
@@ -196,6 +227,20 @@ document.getElementById("payNow").addEventListener("click", function (e) {
 
 			// Simular proceso de pago con timeout
 			setTimeout(() => {
+				/// actualizamos el stock de los productos vendidos
+				suCompra.forEach((item) => {
+					try {
+						console.log(
+							`Procesando venta de Item ${item.id} restamdo ${item.quantity} unidades...`
+						);
+						actualizarStock(item.id, item.quantity);
+					} catch (error) {
+						console.error("❌ Error al procesar la venta:", error.message);
+						// Aquí podrías mostrar una alerta al usuario
+						alert(`Error: ${error.message}`);
+						throw error;
+					}
+				});
 				// Cerrar la alerta de procesamiento
 				Swal.close();
 
